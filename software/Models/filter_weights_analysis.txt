@@ -1,0 +1,58 @@
+
+Layer Name: conv1
+  Input Shape: (None, 28, 28, 1)
+  Output Shape: (None, 24, 24, 6)
+  Number of Weights: 156
+  Kernel Weights Shape: (5, 5, 1, 6)
+  Kernel Weights (<class 'numpy.ndarray'>):
+  Kernel Weights Type (<class 'numpy.float32'>):
+
+Layer Name: pool1
+  Input Shape: (None, 24, 24, 6)
+  Output Shape: (None, 12, 12, 6)
+  Number of Weights: 0
+  No weights found for this layer.
+
+Layer Name: conv2
+  Input Shape: (None, 12, 12, 6)
+  Output Shape: (None, 8, 8, 16)
+  Number of Weights: 2416
+  Kernel Weights Shape: (5, 5, 6, 16)
+  Kernel Weights (<class 'numpy.ndarray'>):
+  Kernel Weights Type (<class 'numpy.float32'>):
+
+Layer Name: pool2
+  Input Shape: (None, 8, 8, 16)
+  Output Shape: (None, 4, 4, 16)
+  Number of Weights: 0
+  No weights found for this layer.
+
+Layer Name: flatten
+  Input Shape: (None, 4, 4, 16)
+  Output Shape: (None, 256)
+  Number of Weights: 0
+  No weights found for this layer.
+
+Layer Name: dense1
+  Input Shape: (None, 256)
+  Output Shape: (None, 120)
+  Number of Weights: 30840
+  Kernel Weights Shape: (256, 120)
+  Kernel Weights (<class 'numpy.ndarray'>):
+  Kernel Weights Type (<class 'numpy.float32'>):
+
+Layer Name: dense2
+  Input Shape: (None, 120)
+  Output Shape: (None, 84)
+  Number of Weights: 10164
+  Kernel Weights Shape: (120, 84)
+  Kernel Weights (<class 'numpy.ndarray'>):
+  Kernel Weights Type (<class 'numpy.float32'>):
+
+Layer Name: output_layer
+  Input Shape: (None, 84)
+  Output Shape: (None, 10)
+  Number of Weights: 850
+  Kernel Weights Shape: (84, 10)
+  Kernel Weights (<class 'numpy.ndarray'>):
+  Kernel Weights Type (<class 'numpy.float32'>):
