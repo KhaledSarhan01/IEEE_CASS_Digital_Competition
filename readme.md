@@ -18,7 +18,8 @@
 - [ ] Design and Test RAM/ROM.
     - [ ] Design and Test RAM for Variables.
     - [ ] Design and Test ROM for Weights.
-    - [ ] Memory Mapping for each RAM and ROM.
+    - [x] Memory Mapping for each RAM.
+    - [ ] Memory Mapping for each ROM.
 - [ ] Design and Test Communication Protocol.
     - [ ] Design and Test UART Rx.
     - [ ] Design and Test Uart2Memory Control.
