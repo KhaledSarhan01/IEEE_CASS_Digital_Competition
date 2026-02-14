@@ -1,4 +1,4 @@
-sim/*.mpf
-sim/*.mti
-sim/*.wlf
-sim/work
+sim/PE/*.mpf
+sim/PE/*.mti
+sim/PE/*.wlf
+sim/PE/work/*

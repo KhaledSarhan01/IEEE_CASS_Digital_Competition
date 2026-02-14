@@ -3,11 +3,21 @@
 ///// Created on: 2026-02-08                   
 ////////////////////////////////////////////////
 
-module tb_LeNet ;
+module tb_PE ;
 //////////////////////////////////////
 ////////////// Signals //////////////
 ////////////////////////////////////
-    logic clk,rst_n;
+    parameter WIDTH = 16;
+    logic clk,rst;
+    logic Clr; 
+    logic Selp;
+    logic Seln; 
+    logic signed [2*WIDTH:0] Prev;     
+    logic signed [WIDTH-1:0] In; 
+    logic signed [WIDTH-1:0] W; 
+    logic signed [WIDTH-1:0] W_out; 
+    logic signed [WIDTH-1:0] In_out; 
+    logic signed [2*WIDTH:0] result;
     
 //////////////////////////////////////
 ///////// Clock Generation //////////
@@ -21,7 +31,7 @@ module tb_LeNet ;
 //////////////////////////////////////
 /////////// Instantiation ///////////
 ////////////////////////////////////
-    LeNet DUT (.*);
+    PE DUT (.*);
 
 //////////////////////////////////////
 ////////// Testbench Core ///////////
@@ -36,9 +46,9 @@ module tb_LeNet ;
     end
     
     task Reset;
-        rst_n = 1'b0;
+        rst = 1'b1;
         @(negedge clk);
-        rst_n = 1'b1;
+        rst = 1'b0;
     endtask
     
     task Finish;
@@ -57,7 +67,12 @@ module tb_LeNet ;
 ////////////////////////////////////
     task Initialization;
         // Initialize your Signals Here
-        
+        Clr  = 'b0; 
+        Selp = 'b0;
+        Seln = 'b0; 
+        Prev = 'd1;     
+        In   = 'd5; 
+        W    = 'd2; 
     endtask
     task Main_Scenario();
         // Write your Test Scenario Here

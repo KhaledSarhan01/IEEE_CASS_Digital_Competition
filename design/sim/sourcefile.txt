@@ -1,3 +1,0 @@
-
-../rtl/LeNet.sv
-../testbench/tb_LeNet.sv

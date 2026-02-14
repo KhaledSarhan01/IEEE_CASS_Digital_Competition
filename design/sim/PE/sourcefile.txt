@@ -1,0 +1,2 @@
+../../rtl/CNN_PE.sv
+../../testbench/PE/tb_PE.sv
