@@ -9,13 +9,24 @@
 * Feature Map/Vectors are Stored in Distrubited RAM for DNN and Block RAM for CNN. 
 ## Blocks
 ### Utils Blocks 
+#### RelU Block 
+##### Port Mapping 
+| Port | Direction | Format |
+| :--- | :----: | :---: |
+| relu_in| Input |`Q4.11 signed`|
+| relu_out| Output |`Q4.4 unsigned`|
+##### Features
+- ```relu_out = max(0,relu_in)``` as Pure Combinational Logic.
+- apply output mapping from `Q4.11 signed` into `Q4.4 unsigned` with Saturating Convergent Rounding. 
 #### Multipler 
 ##### Port Mapping 
-- weights   `Q0.7 signed`
-- features  `Q4.4 unsigned`
-- out       `Q4.11 signed`
+| Port | Direction | Format |
+| :--- | :----: | :---: |
+| weights| Input| `Q0.7 signed`|
+| features|Input |`Q4.4 unsigned`|
+| out| Output|`Q4.11 signed`|
 ##### Features
-- Desiged to multiply `Q4.4 unsiged` with `Q0.7 signed`
+- Desiged to multiply `Q4.4 unsiged` with `Q0.7 signed` as pure combinational Logic.
 - Designed with Sparsity,bypassing the multiplier when one of inputs equal zero,which results in better power consumbtion.
 ## TODO:
 - [x] Initial Design For the system.
@@ -39,10 +50,9 @@
     - [ ] Design and Test UART Rx.
     - [ ] Design and Test Uart2Memory Control.
 - [ ] Design and Test Output Layer.
-- [ ] Design and Test Utils Blocks.
+- [x] Design and Test Utils Blocks.
     - [x] Design and Test Multipler Block.
-    - [ ] Design and Test Adder Block.
-    - [ ] Design and Test Relu Block.
+    - [x] Design and Test Relu Block.
 - [ ] Design and Test LeNet5_top.
     - [ ] Design and Test Communication Protocol.
     - [ ] Design and Test Input_Feature.

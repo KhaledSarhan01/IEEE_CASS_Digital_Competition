@@ -7,3 +7,8 @@ sim/multipler/*.mpf
 sim/multipler/*.mti
 sim/multipler/*.wlf
 sim/multipler/work/*
+
+sim/relu/*.mpf
+sim/relu/*.mti
+sim/relu/*.wlf
+sim/relu/work/*
