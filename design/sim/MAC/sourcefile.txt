@@ -1,0 +1,4 @@
+../../rtl/_package.sv
+../../rtl/multipler.sv
+../../rtl/DNN_MAC.sv
+../../testbench/MAC/tb_MAC.sv

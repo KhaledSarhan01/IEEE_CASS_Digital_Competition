@@ -12,3 +12,8 @@ sim/relu/*.mpf
 sim/relu/*.mti
 sim/relu/*.wlf
 sim/relu/work/*
+
+sim/MAC/*.mpf
+sim/MAC/*.mti
+sim/MAC/*.wlf
+sim/MAC/work/*

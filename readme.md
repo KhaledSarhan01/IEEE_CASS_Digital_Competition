@@ -1,5 +1,6 @@
 # IEEE CASS Digital Competition 
 ## Brief Notes:
+* We use Posedge Asynchronous Reset.
 * For Weights, we will use `Q0.7 signed`.
 * For Features, we will use `Q4.4 Unsigned`.
 * For Multipler outputs/ Addition Inputs , we will use `Q4.11 signed`.
@@ -39,7 +40,6 @@
     - [ ] Design and Test CNN Control.
 - [ ] Design and Test DNN.
     - [ ] Design and Test MAC.
-    - [ ] Design and Test Relu.
     - [ ] Design and Test DNN Control.
 - [ ] Design and Test RAM/ROM.
     - [ ] Design and Test RAM for Variables.
