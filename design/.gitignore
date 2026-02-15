@@ -2,3 +2,8 @@ sim/PE/*.mpf
 sim/PE/*.mti
 sim/PE/*.wlf
 sim/PE/work/*
+
+sim/multipler/*.mpf
+sim/multipler/*.mti
+sim/multipler/*.wlf
+sim/multipler/work/*
