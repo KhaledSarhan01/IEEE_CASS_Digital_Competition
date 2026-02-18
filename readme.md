@@ -32,6 +32,9 @@
 ## TODO:
 - [x] Initial Design For the system.
 - [x] Fixed Point Analysis on Weights and Features.
+- [x] Parameter Extraction:
+    - [x] Weights Extraction.
+    - [x] Feature Extraction per random image.
 - [ ] Write a Documentation for the System
 - [ ] Design and Test CNN.
     - [ ] Design and Test PE. 
@@ -39,7 +42,7 @@
     - [ ] Design and Test Maxpool.
     - [ ] Design and Test CNN Control.
 - [ ] Design and Test DNN.
-    - [ ] Design and Test MAC.
+    - [x] Design and Test MAC.
     - [ ] Design and Test DNN Control.
 - [ ] Design and Test RAM/ROM.
     - [ ] Design and Test RAM for Variables.
