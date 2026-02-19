@@ -44,9 +44,9 @@
 - [ ] Design and Test DNN.
     - [x] Design and Test MAC.
     - [ ] Design and Test DNN Control.
-- [ ] Design and Test RAM/ROM.
-    - [ ] Design and Test RAM for Variables.
-    - [ ] Design and Test ROM for Weights.
+- Design and Test RAM/ROM.
+    - [x] Design and Test RAM for Variables.
+    - [x] Design and Test ROM for Weights.
     - [x] Memory Mapping for each RAM.
     - [ ] Memory Mapping for each ROM.
 - [ ] Design and Test Communication Protocol.
