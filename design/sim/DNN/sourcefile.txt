@@ -1,0 +1,8 @@
+../../rtl/_package.sv
+../../rtl/multipler.sv
+../../rtl/DNN_MAC.sv
+../../rtl/ROM.sv
+../../rtl/Relu.sv
+../../rtl/DNN_Control.sv
+../../rtl/DNN.sv 
+../../testbench/DNN/tb_DNN.sv

@@ -41,9 +41,9 @@
     - [ ] Design and Test PE Matrix.
     - [ ] Design and Test Maxpool.
     - [ ] Design and Test CNN Control.
-- [ ] Design and Test DNN.
+- [x] Design and Test DNN.
     - [x] Design and Test MAC.
-    - [ ] Design and Test DNN Control.
+    - [x] Design and Test DNN Control.
 - Design and Test RAM/ROM.
     - [x] Design and Test RAM for Variables.
     - [x] Design and Test ROM for Weights.

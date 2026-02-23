@@ -17,3 +17,8 @@ sim/MAC/*.mpf
 sim/MAC/*.mti
 sim/MAC/*.wlf
 sim/MAC/work/*
+
+sim/DNN/*.mpf
+sim/DNN/*.mti
+sim/DNN/*.wlf
+sim/DNN/work/*
