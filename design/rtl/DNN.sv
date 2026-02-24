@@ -1,4 +1,20 @@
 import LeNet5_pkg::*;
+/*
+    TODO:
+    - Memory:
+        - Change DATA_WIDTH into 32 bit 
+    - MAC:
+        - Apply Changes on new MAC to calculate 4 inputs at the same time
+            x |
+            x | +|
+            x | +|+| + |MAC_out{16 bit}  
+            x |
+        - Test the functionality     
+    - Control: 
+        - do changes to meet the same functionality
+    - Relu:
+        - output is 32 bit 
+*/
 module DNN #(
     parameter NUM_INPUT  = 84,
     parameter NUM_OUTPUT = 10,
