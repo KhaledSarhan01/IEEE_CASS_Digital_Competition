@@ -1,7 +1,7 @@
 import LeNet5_pkg::*;
 module DNN #(
-    parameter NUM_INPUT  = 85,
-    parameter NUM_OUTPUT = 11,
+    parameter NUM_INPUT  = 84,
+    parameter NUM_OUTPUT = 10,
     parameter OUT_FORMAT = "Q4_4",
     parameter string WEIGHT_FILE = "dense3_weight.mem",
     parameter string BIAS_FILE   = "dense3_bias.mem"

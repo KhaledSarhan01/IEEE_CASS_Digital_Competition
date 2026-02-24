@@ -1,3 +1,14 @@
+syn/DE_1/DNN/db/*
+syn/DE_1/DNN/*
+syn/DE_1/DNN/rtl/*.bak
+syn/DE_1/DNN/*.bak
+!syn/DE_1/DNN/DE1_DNN.htm 
+!syn/DE_1/DNN/DE1_DNN.qpf 
+!syn/DE_1/DNN/DE1_DNN.qsf 
+!syn/DE_1/DNN/DE1_DNN.sdc 
+!syn/DE_1/DNN/rtl/
+!syn/DE_1/DNN/report/
+
 sim/PE/*.mpf
 sim/PE/*.mti
 sim/PE/*.wlf
