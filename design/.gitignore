@@ -33,3 +33,9 @@ sim/DNN/*.mpf
 sim/DNN/*.mti
 sim/DNN/*.wlf
 sim/DNN/work/*
+
+sim/Top/*
+!sim/Top/done.do 
+!sim/Top/reset.do 
+!sim/Top/sourcefile.txt 
+!sim/Top/start.do

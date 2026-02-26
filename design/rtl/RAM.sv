@@ -1,7 +1,6 @@
 module RAM #(
     parameter int MEM_SIZE = 512,
-    parameter int DATA_WIDTH = 16,
-    parameter FILE_NAME = "random_bytes.mem" // Removed "string" keyword here
+    parameter int DATA_WIDTH = 16
 ) (
     // Input Write Port
     input  logic                        in_clk,
@@ -17,12 +16,6 @@ module RAM #(
 );
     
     (* ramstyle = "M10K" *) logic [DATA_WIDTH-1:0] M10k_mem [0:MEM_SIZE-1];
-
-    initial begin
-        // Quartus prefers the parameter to be passed without strict string typing
-        // or defined as a literal.
-        $readmemh(FILE_NAME, M10k_mem);
-    end 
 
     always_ff @(posedge in_clk) begin
         if (write_enable) begin 

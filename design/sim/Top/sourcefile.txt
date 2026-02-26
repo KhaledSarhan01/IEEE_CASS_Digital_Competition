@@ -1,0 +1,11 @@
+../../rtl/_package.sv
+../../rtl/multipler.sv 
+../../rtl/RAM.sv 
+../../rtl/Relu.sv 
+../../rtl/ROM.sv
+../../rtl/DNN_Control.sv 
+../../rtl/DNN_MAC.sv 
+../../rtl/DNN.sv 
+../../rtl/OutLayer.sv 
+../../rtl/_top.sv 
+../../testbench/Top/tb_LeNet.sv
