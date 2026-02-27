@@ -14,14 +14,17 @@ module MAC (
 // NOTE: DNN Control is reponsible to choose when MAC_out = feature_out
 
 // 1. Input Registering 
-    feature_t feature_in_reg;
+    feature_t [1:0] feature_in_reg;
+    weight_t  weight_reg;
     always_ff @( posedge clk or posedge rst ) begin 
         if (rst) begin
-            feature_in_reg <= 'b0;
-            // weight_reg <= 'b0;
+            feature_in_reg[0] <= 'b0;
+            feature_in_reg[1] <= 'b0;
+            weight_reg <= 'b0;
         end else begin
-            feature_in_reg <= feature_in;
-            // weight_reg <= weight;
+            feature_in_reg[0] <= feature_in;
+            feature_in_reg[1] <= feature_in_reg[0];
+            weight_reg <= weight;
         end
     end
 // bais(Q0.7 Signed)  = sFFFFFFF           
@@ -43,8 +46,8 @@ module MAC (
         end
     end    
     multipler u_DNN_MAC_multipler(
-        .weight_sq0_7(weight),      // Q0.7 signed
-        .feature_uq4_4(feature_in_reg), // Q4.4 unsiged
+        .weight_sq0_7(weight_reg),      // Q0.7 signed
+        .feature_uq4_4(feature_in_reg[1]), // Q4.4 unsiged
         .out_sq4_11(product_comb)       // Q4.11 signed
     );
 // 3. Accumaltion and output 

@@ -1,5 +1,5 @@
 Summary report for DE1_DNN
-Tue Feb 24 19:27:47 2026
+Fri Feb 27 20:03:41 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -33,17 +33,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Tue Feb 24 19:26:48 2026            ;
+; Power Analyzer Status                  ; Successful - Fri Feb 27 20:03:08 2026            ;
 ; Quartus Prime Version                  ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition  ;
 ; Revision Name                          ; DE1_DNN                                          ;
 ; Top-level Entity Name                  ; DE1_DNN                                          ;
 ; Family                                 ; Cyclone V                                        ;
 ; Device                                 ; 5CSEMA5F31C6                                     ;
 ; Power Models                           ; Final                                            ;
-; Total Thermal Power Dissipation        ; 472.48 mW                                        ;
-; Core Dynamic Thermal Power Dissipation ; 22.81 mW                                         ;
-; Core Static Thermal Power Dissipation  ; 415.34 mW                                        ;
-; I/O Thermal Power Dissipation          ; 34.33 mW                                         ;
+; Total Thermal Power Dissipation        ; 471.46 mW                                        ;
+; Core Dynamic Thermal Power Dissipation ; 22.45 mW                                         ;
+; Core Static Thermal Power Dissipation  ; 415.33 mW                                        ;
+; I/O Thermal Power Dissipation          ; 33.67 mW                                         ;
 ; Power Estimation Confidence            ; Low: user provided insufficient toggle rate data ;
 +----------------------------------------+--------------------------------------------------+
 
