@@ -6,8 +6,10 @@ package LeNet5_pkg;
     typedef logic signed [7:0]  weight_t;  // Q0.7  signed
     typedef logic        [7:0]  feature_t; // Q4.4  unsiged
     // Feature Maps
-    parameter FLATTEN_LAYER_PARAMETERS = "../../../software/Parameters/Tests/Test_no0/FM_2/_flatten_FM2.mem";
-    
+    parameter FLATTEN_LAYER_PARAMETERS = "../../../software/Parameters/Tests/Test_no3/FM_2/_flatten_FM2.mem";
+    parameter FEATURE_MAP_3_FILE_PATH  = "../../../software/Parameters/Tests/Test_no3/FM_3/Feature_Map_3.mem";
+    parameter FEATURE_MAP_4_FILE_PATH  = "../../../software/Parameters/Tests/Test_no3/FM_4/Feature_Map_4.mem";
+
     parameter FEATURE_MAP_2_SIZE = 256;
     parameter FEATURE_MAP_3_SIZE = 120;
     parameter FEATURE_MAP_4_SIZE = 84;

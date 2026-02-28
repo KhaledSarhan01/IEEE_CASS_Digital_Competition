@@ -14,7 +14,7 @@ module MAC (
 // NOTE: DNN Control is reponsible to choose when MAC_out = feature_out
 
 // 1. Input Registering 
-    feature_t [1:0] feature_in_reg;
+    feature_t feature_in_reg [1:0];
     weight_t  weight_reg;
     always_ff @( posedge clk or posedge rst ) begin 
         if (rst) begin
