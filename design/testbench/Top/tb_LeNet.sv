@@ -44,7 +44,7 @@ module tb_LeNet;
     endtask
     
     task Finish;
-        repeat(100) @(negedge clk);
+        repeat(50000) @(negedge clk);
         $stop;
     endtask
 // Watch dog works after 10 ms in simulation time 
@@ -63,5 +63,9 @@ module tb_LeNet;
     endtask
     task Main_Scenario();
         // Write your Test Scenario Here
+        @(negedge clk);
+        LeNet_start = 1'b1;
+        @(negedge clk);
+        LeNet_start = 1'b0;
     endtask
 endmodule

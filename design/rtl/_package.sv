@@ -6,7 +6,7 @@ package LeNet5_pkg;
     typedef logic signed [7:0]  weight_t;  // Q0.7  signed
     typedef logic        [7:0]  feature_t; // Q4.4  unsiged
     // Feature Maps
-    parameter FLATTEN_LAYER_PARAMETERS = "../../../software/Quantized_Weights/FM_2/_flatten_FM2.mem";
+    parameter FLATTEN_LAYER_PARAMETERS = "../../../software/Parameters/Tests/Test_no0/FM_2/_flatten_FM2.mem";
     
     parameter FEATURE_MAP_2_SIZE = 256;
     parameter FEATURE_MAP_3_SIZE = 120;
@@ -14,10 +14,10 @@ package LeNet5_pkg;
     parameter PREDICTION_SIZE   = 10;
         
     // Layers
-    parameter DENSE_1_WEIGHT_FILE = "../../../software/Quantized_Weights/dense1/dense1_weight.mem";
-    parameter DENSE_1_BIAS_FILE   = "../../../software/Quantized_Weights/dense1/dense1_bias.mem";
-    parameter DENSE_2_WEIGHT_FILE = "../../../software/Quantized_Weights/dense2/dense2_weight.mem";
-    parameter DENSE_2_BIAS_FILE   = "../../../software/Quantized_Weights/dense2/dense2_bias.mem";
-    parameter DENSE_3_WEIGHT_FILE = "../../../software/Quantized_Weights/dense3/dense3_weight.mem";
-    parameter DENSE_3_BIAS_FILE   = "../../../software/Quantized_Weights/dense3/dense3_bias.mem";
+    parameter DENSE_1_WEIGHT_FILE = "../../../software/Parameters/Weight/dense1/dense1_weight.mem";
+    parameter DENSE_1_BIAS_FILE   = "../../../software/Parameters/Weight/dense1/dense1_bias.mem";
+    parameter DENSE_2_WEIGHT_FILE = "../../../software/Parameters/Weight/dense2/dense2_weight.mem";
+    parameter DENSE_2_BIAS_FILE   = "../../../software/Parameters/Weight/dense2/dense2_bias.mem";
+    parameter DENSE_3_WEIGHT_FILE = "../../../software/Parameters/Weight/dense3/dense3_weight.mem";
+    parameter DENSE_3_BIAS_FILE   = "../../../software/Parameters/Weight/dense3/dense3_bias.mem";
 endpackage
