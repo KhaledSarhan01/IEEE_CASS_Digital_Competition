@@ -9,6 +9,17 @@ syn/DE_1/DNN/*.bak
 !syn/DE_1/DNN/rtl/
 !syn/DE_1/DNN/report/
 
+syn/DE_1/OutLayer/db/*
+syn/DE_1/OutLayer/*
+syn/DE_1/OutLayer/rtl/*.bak
+syn/DE_1/OutLayer/*.bak
+!syn/DE_1/OutLayer/DE1_OutLayer.htm 
+!syn/DE_1/OutLayer/DE1_OutLayer.qpf 
+!syn/DE_1/OutLayer/DE1_OutLayer.qsf 
+!syn/DE_1/OutLayer/DE1_OutLayer.sdc 
+!syn/DE_1/OutLayer/rtl/
+!syn/DE_1/OutLayer/report/
+
 sim/PE/*.mpf
 sim/PE/*.mti
 sim/PE/*.wlf
@@ -39,3 +50,10 @@ sim/Top/*
 !sim/Top/reset.do 
 !sim/Top/sourcefile.txt 
 !sim/Top/start.do
+
+sim/OutLayer/*
+!sim/OutLayer/done.do 
+!sim/OutLayer/reset.do 
+!sim/OutLayer/sourcefile.txt 
+!sim/OutLayer/start.do
+!sim/OutLayer/wave.do
