@@ -1,11 +1,14 @@
 import LeNet5_pkg::*;
 module tb_DNN;
 // Signals
-    parameter NUM_INPUT  = 84;
-    parameter NUM_OUTPUT = 10;
-    parameter OUT_FORMAT = "Q1_7";
-    parameter WEIGHT_FILE = "../../testbench/DNN/dense3_weight.mem";
-    parameter BIAS_FILE   = "../../testbench/DNN/dense3_bias.mem";
+    parameter OUT_FORMAT = "Q4_4";
+    
+    parameter NUM_INPUT            = FEATURE_MAP_2_SIZE;
+    parameter NUM_OUTPUT           = FEATURE_MAP_3_SIZE;
+    parameter WEIGHT_FILE          = "../../../software/Parameters/Weight/dense1/dense1_weight.mem";
+    parameter BIAS_FILE            = "../../../software/Parameters/Weight/dense1/dense1_bias.mem";
+    parameter INPUT_FEATURES_FILE  = "../../../software/Parameters/Tests/Test_no3/FM_2/_flatten_FM2.mem";
+    parameter OUTPUT_FEATURES_FILE = "../../../software/Parameters/Tests/Test_no3/FM_3/Feature_Map_3.mem";
     localparam NUM_WEIGHT = NUM_INPUT*NUM_OUTPUT;
     localparam NUM_BIAS   = NUM_OUTPUT;
 
@@ -33,10 +36,11 @@ DNN #(
     end
 // Data importing
     logic [7:0] input_features  [NUM_INPUT-1:0];
-    // logic [7:0] output_features [NUM_OUTPUT-1:0];
+    logic [7:0] computed_feautures [NUM_OUTPUT-1:0];
+    logic [7:0] output_features [NUM_OUTPUT-1:0];
     initial begin
-        $readmemh("../../testbench/DNN/input_features.mem",input_features);
-        // $readmemh("../../testbench/DNN/output_features.mem",output_features);
+        $readmemh(INPUT_FEATURES_FILE,input_features);
+        $readmemh(OUTPUT_FEATURES_FILE,output_features);
     end
     assign in_feature = input_features[in_address];
 // Testbench 
@@ -53,7 +57,49 @@ DNN #(
         @(negedge clk);
         in_start = 1'b0;
         // wait
-        repeat(2000) @(negedge clk);
+        repeat(40000) @(negedge clk);
         $stop; 
     end 
+    initial begin
+        fork
+            begin
+                // Wait for the process to actually begin
+                wait(in_start); 
+                
+                // Keep checking every clock cycle
+                forever begin
+                    @(posedge clk); 
+                    if (out_enable) begin
+                        computed_feautures[out_address] = out_feature;
+                    end
+                    if(out_done)begin
+                        break;
+                    end
+                end
+            end
+        join // Use join_none so it doesn't block the rest of your initial block
+        check_array_equality(output_features,computed_feautures);
+    end 
+    task check_array_equality (
+        input  feature_t expected_arr [NUM_OUTPUT],
+        input  feature_t computed_arr [NUM_OUTPUT]
+    );
+        int error_count;
+        error_count = 0; // Initialize counter
+
+        for (int i = 0; i <= NUM_OUTPUT-1; i++) begin
+            // Using !== to catch X or Z mismatches if they occur
+            if (expected_arr[i] !== computed_arr[i]) begin
+                $display("[ERROR] Mismatch at index %0d: Expected %h, Got %h", 
+                        i, expected_arr[i], computed_arr[i]);
+                error_count++;
+            end
+        end
+
+        if (error_count == 0) begin
+            $display("[SUCCESS] All %0d elements match!", FEATURE_MAP_3_SIZE);
+        end else begin
+            $display("[FAILURE] Found %0d total mismatches.", error_count);
+        end
+    endtask 
 endmodule

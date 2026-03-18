@@ -39,14 +39,14 @@ add wave -noupdate -radix fixed#7#decimal#signed /tb_DNN/DUT/u_DNN_MAC/bais
 add wave -noupdate -radix unsigned /tb_DNN/DUT/u_DNN_MAC/bais
 add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/bais_en
 add wave -noupdate -radix hexadecimal /tb_DNN/DUT/u_DNN_MAC/MAC_out
-add wave -noupdate -radix unsigned /tb_DNN/DUT/u_DNN_MAC/MAC_out
+add wave -noupdate -radix fixed#11#decimal#signed /tb_DNN/DUT/u_DNN_MAC/MAC_out
+add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/feature_in_reg
+add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/weight_reg
 add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/bais_qs4_11
 add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/product
 add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/product_comb
-add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/feature_in_reg
-add wave -noupdate /tb_DNN/DUT/u_DNN_MAC/weight_reg
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {96 ns} 0}
+WaveRestoreCursors {{Cursor 1} {98 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 190
 configure wave -valuecolwidth 116
@@ -62,4 +62,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {196 ns}
+WaveRestoreZoom {20 ns} {191 ns}
