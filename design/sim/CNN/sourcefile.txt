@@ -1,0 +1,6 @@
+../../rtl/_package.sv
+../../rtl/multipler.sv
+../../rtl/CNN_Accumulate.sv 
+../../rtl/CNN_PE.sv
+../../rtl/CNN_Matrix.sv 
+../../testbench/CNN/tb_CNN.sv

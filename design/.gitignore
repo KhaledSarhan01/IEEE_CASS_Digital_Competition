@@ -20,10 +20,12 @@ syn/DE_1/OutLayer/*.bak
 !syn/DE_1/OutLayer/rtl/
 !syn/DE_1/OutLayer/report/
 
-sim/PE/*.mpf
-sim/PE/*.mti
-sim/PE/*.wlf
-sim/PE/work/*
+sim/PE/*
+!sim/PE/done.do 
+!sim/PE/reset.do 
+!sim/PE/sourcefile.txt 
+!sim/PE/start.do 
+!sim/PE/wave.do
 
 sim/multipler/*.mpf
 sim/multipler/*.mti
@@ -57,3 +59,11 @@ sim/OutLayer/*
 !sim/OutLayer/sourcefile.txt 
 !sim/OutLayer/start.do
 !sim/OutLayer/wave.do
+
+sim/CNN/*
+!sim/CNN/done.do 
+!sim/CNN/reset.do 
+!sim/CNN/sourcefile.txt 
+!sim/CNN/start.do
+!sim/CNN/*.csv
+!sim/CNN/wave.do

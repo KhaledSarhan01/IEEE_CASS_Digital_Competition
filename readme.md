@@ -63,9 +63,9 @@
     - [ ] Design and Test Feature_Map_1.
     - [ ] Design and Test conv2_layer.
     - [ ] Design and Test Feature_Map_2.
-    - [ ] Design and Test dense1_layer.
-    - [ ] Design and Test Feature_Vector_1.
-    - [ ] Design and Test dense2_layer.
-    - [ ] Design and Test Feature_Vector_2.
-    - [ ] Design and Test output_dense_layer.
-    - [ ] Design and Test Out_layer.
+    - [x] Design and Test dense1_layer.
+    - [x] Design and Test Feature_Vector_1.
+    - [x] Design and Test dense2_layer.
+    - [x] Design and Test Feature_Vector_2.
+    - [x] Design and Test output_dense_layer.
+    - [x] Design and Test Out_layer.

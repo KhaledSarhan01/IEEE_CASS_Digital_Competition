@@ -2,22 +2,17 @@
 ///// Project   : LeNet             
 ///// Created on: 2026-02-08                   
 ////////////////////////////////////////////////
-
+import LeNet5_pkg::*;
 module tb_PE ;
 //////////////////////////////////////
 ////////////// Signals //////////////
 ////////////////////////////////////
-    parameter WIDTH = 16;
-    logic clk,rst;
-    logic Clr; 
-    logic Selp;
-    logic Seln; 
-    logic signed [2*WIDTH:0] Prev;     
-    logic signed [WIDTH-1:0] In; 
-    logic signed [WIDTH-1:0] W; 
-    logic signed [WIDTH-1:0] W_out; 
-    logic signed [WIDTH-1:0] In_out; 
-    logic signed [2*WIDTH:0] result;
+    logic     clk,rst;
+    sum_t     prev_c; // Previous Accumaltion
+    weight_t  curr_x; // Current Filter weight
+    feature_t curr_y; // Current Feature 
+    logic     clear;  // Clear signal 
+    sum_t     curr_c;  // Current Accumaltion
     
 //////////////////////////////////////
 ///////// Clock Generation //////////
@@ -52,7 +47,7 @@ module tb_PE ;
     endtask
     
     task Finish;
-        repeat(100) @(negedge clk);
+        repeat(10) @(negedge clk);
         $stop;
     endtask
 // Watch dog works after 10 ms in simulation time 
@@ -67,14 +62,26 @@ module tb_PE ;
 ////////////////////////////////////
     task Initialization;
         // Initialize your Signals Here
-        Clr  = 'b0; 
-        Selp = 'b0;
-        Seln = 'b0; 
-        Prev = 'd1;     
-        In   = 'd5; 
-        W    = 'd2; 
+        prev_c = 'b0; // Previous Accumaltion
+        curr_x = 'b0; // Current Filter weight
+        curr_y = 'b0; // Current Feature 
+        clear  = 'b1;  // Clear signal  
     endtask
     task Main_Scenario();
         // Write your Test Scenario Here
+        prev_c = 'd5; // Previous Accumaltion
+        curr_x = 'd6; // Current Filter weight
+        curr_y = 'd2; // Current Feature 
+        clear  = 1'b0;  // Clear signal
+        @(posedge clk);
+        prev_c = 'd10; // Previous Accumaltion
+        curr_x = 'd7; // Current Filter weight
+        curr_y = 'd5; // Current Feature 
+        clear  = 1'b1;  // Clear signal
+        @(posedge clk);
+        prev_c = 'd10; // Previous Accumaltion
+        curr_x = 'd7; // Current Filter weight
+        curr_y = 'd5; // Current Feature 
+        clear  = 1'b0;  // Clear signal
     endtask
 endmodule
