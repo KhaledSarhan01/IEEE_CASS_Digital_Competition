@@ -59,18 +59,18 @@ module tb_CNN;
 ////////////////////////////////////
     task Initialization;
         // Weights and Features
-        f_map = {{3 ,0 ,8 ,5 ,0 ,0}
-                ,{19,13,85,14,14,5}
-                ,{37,6 ,8 ,24,0 ,2}
-                ,{2 ,5 ,2 ,37,29,27}
-                ,{3 ,10,0 ,82,0 ,130}
-                ,{0 ,48,70,50,45,0}
+        f_map = {{11,12,13,14,15,16}
+                ,{21,22,23,24,25,26}
+                ,{31,32,33,34,35,36}
+                ,{41,42,43,44,45,46}
+                ,{51,52,53,54,55,56}
+                ,{61,62,63,64,65,66}
                 }; 
-        w_map = {{13,13,26,13,13}
-                ,{13,26,38,26,13}
-                ,{26,38,51,38,26}
-                ,{13,26,38,26,13}
-                ,{13,13,26,13,13}
+        w_map = {{1,2,3,4,5}
+                ,{1,2,3,4,5}
+                ,{1,2,3,4,5}
+                ,{1,2,3,4,5}
+                ,{1,2,3,4,5}
                 };
         // Initialize your Signals Here
         clear = 'b1;
@@ -271,18 +271,25 @@ module tb_CNN;
           x3 = 'd0;
           x2 = 'd0;
           x1 = 'd0;
+        @(posedge clk); // Clock 13  
          clear = 1'b1; 
     endtask
     task automatic display_values();
-        // Using %f for floating point. %.4f limits it to 4 decimal places for clarity.
-        $display("y at %0t: %.4f, %.4f, %.4f, %.4f, %.4f, %.4f", 
-                $time, y1/16.0, y2/16.0, y3/16.0, y4/16.0, y5/16.0, y6/16.0);
+        // // Using %f for floating point. %.4f limits it to 4 decimal places for clarity.
+        // $display("y at %0t: %.4f, %.4f, %.4f, %.4f, %.4f, %.4f", 
+        //         $time, y1/16.0, y2/16.0, y3/16.0, y4/16.0, y5/16.0, y6/16.0);
                 
-        // For signed Q0.7, ensure x variables are declared as 'signed' logic/int 
-        // so the division handles the negative values correctly.
-        $display("x at %0t: %.4f, %.4f, %.4f, %.4f, %.4f", 
-                $time, x1/128.0, x2/128.0, x3/128.0, x4/128.0, x5/128.0);
+        // // For signed Q0.7, ensure x variables are declared as 'signed' logic/int 
+        // // so the division handles the negative values correctly.
+        // $display("x at %0t: %.4f, %.4f, %.4f, %.4f, %.4f", 
+        //         $time, x1/128.0, x2/128.0, x3/128.0, x4/128.0, x5/128.0);
                 
+        // $display("====");
+
+        $display("y at %0t:%d,%d,%d,%d,%d,%d \n",$time,y1,y2,y3,y4,y5,y6);
+
+        $display("x at %0t:%d,%d,%d,%d,%d \n",$time,x1,x2,x3,x4,x5);
+
         $display("====");
     endtask
 endmodule
