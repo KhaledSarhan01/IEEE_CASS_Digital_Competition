@@ -6,6 +6,7 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate /tb_CNN/clk
 add wave -noupdate /tb_CNN/rst
 add wave -noupdate /tb_CNN/clear
+add wave -noupdate /tb_CNN/start
 add wave -noupdate -divider Y
 add wave -noupdate /tb_CNN/y1
 add wave -noupdate -radix fixed#4#decimal /tb_CNN/y2
@@ -14,15 +15,16 @@ add wave -noupdate -radix fixed#4#decimal /tb_CNN/y4
 add wave -noupdate -radix fixed#4#decimal /tb_CNN/y5
 add wave -noupdate -radix fixed#4#decimal /tb_CNN/y6
 add wave -noupdate -divider X
-add wave -noupdate /tb_CNN/x1
+add wave -noupdate -radix fixed#7#decimal#signed /tb_CNN/bias
+add wave -noupdate -radix fixed#7#decimal#signed /tb_CNN/x1
 add wave -noupdate -radix fixed#7#decimal#signed /tb_CNN/x2
 add wave -noupdate -radix fixed#7#decimal#signed /tb_CNN/x3
 add wave -noupdate -radix fixed#7#decimal#signed /tb_CNN/x4
 add wave -noupdate -radix fixed#7#decimal#signed /tb_CNN/x5
 add wave -noupdate -divider C
-add wave -noupdate /tb_CNN/c1
-add wave -noupdate -radix fixed#11#decimal#signed /tb_CNN/c2
+add wave -noupdate -radix fixed#11#decimal#signed /tb_CNN/c1
 add wave -noupdate -radix fixed#11#decimal#signed /tb_CNN/c3
+add wave -noupdate -radix fixed#11#decimal#signed /tb_CNN/c2
 add wave -noupdate -radix fixed#11#decimal#signed /tb_CNN/c4
 add wave -noupdate -divider Internals
 add wave -noupdate -group x_reg -radix fixed#7#decimal#signed /tb_CNN/DUT/x1_reg
@@ -57,8 +59,28 @@ add wave -noupdate -group c4 -radix fixed#11#decimal#signed /tb_CNN/DUT/c4_3
 add wave -noupdate -group c4 -radix fixed#11#decimal#signed /tb_CNN/DUT/c4_4
 add wave -noupdate -group c4 -radix fixed#11#decimal#signed /tb_CNN/DUT/c4_5
 add wave -noupdate -divider PE
+add wave -noupdate /tb_CNN/clk
+add wave -noupdate /tb_CNN/rst
+add wave -noupdate /tb_CNN/clear
+add wave -noupdate /tb_CNN/start
+add wave -noupdate /tb_CNN/y1
+add wave -noupdate /tb_CNN/y2
+add wave -noupdate /tb_CNN/y3
+add wave -noupdate /tb_CNN/y4
+add wave -noupdate /tb_CNN/y5
+add wave -noupdate /tb_CNN/y6
+add wave -noupdate /tb_CNN/x1
+add wave -noupdate /tb_CNN/x2
+add wave -noupdate /tb_CNN/x3
+add wave -noupdate /tb_CNN/x4
+add wave -noupdate /tb_CNN/x5
+add wave -noupdate /tb_CNN/bias
+add wave -noupdate /tb_CNN/c1
+add wave -noupdate /tb_CNN/c2
+add wave -noupdate /tb_CNN/c3
+add wave -noupdate /tb_CNN/c4
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {105 ns} 0}
+WaveRestoreCursors {{Cursor 1} {265 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 98
 configure wave -valuecolwidth 88
@@ -74,4 +96,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {18 ns} {143 ns}
+WaveRestoreZoom {198 ns} {323 ns}

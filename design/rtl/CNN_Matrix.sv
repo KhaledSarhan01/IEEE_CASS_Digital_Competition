@@ -2,8 +2,10 @@ import LeNet5_pkg::*;
 module CNN (
     input logic clk,rst,
     input logic clear,
+    input logic start,
     input feature_t y1,y2,y3,y4,y5,y6,
     input weight_t  x1,x2,x3,x4,x5,
+    input weight_t  bias,
     output sum_t    c1,c2,c3,c4 
 );
 // Registering the features "y"
@@ -110,6 +112,8 @@ module CNN (
         .clk(clk),
         .rst(rst),
         .clear(clear),
+        .i_start(start),
+        .i_bias(bias),
         .i_value(c1_5), 
         .o_acc(c1)
     );
@@ -164,6 +168,8 @@ module CNN (
         .clk(clk),
         .rst(rst),
         .clear(clear),
+        .i_start(start),
+        .i_bias(bias),
         .i_value(c2_5), 
         .o_acc(c2)
     );
@@ -218,6 +224,8 @@ module CNN (
         .clk(clk),
         .rst(rst),
         .clear(clear),
+        .i_start(start),
+        .i_bias(bias),
         .i_value(c3_5), 
         .o_acc(c3)
     );    
@@ -272,6 +280,8 @@ module CNN (
         .clk(clk),
         .rst(rst),
         .clear(clear),
+        .i_start(start),
+        .i_bias(bias),
         .i_value(c4_5), 
         .o_acc(c4)
     );    
