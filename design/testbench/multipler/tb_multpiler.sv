@@ -25,13 +25,13 @@ module tb_multpiler();
         #10; // Wait for combinational logic to settle
 
         // Convert bits back to real numbers for checking
-        real_feature  = feature_in / 16.0;           // Q4.4 -> 2^4
-        real_weight   = weight_in  / 128.0;          // Q0.7 -> 2^7
+        real_feature  = feature_in / 8.0;           // Q4.3 -> 2^3
+        real_weight   = weight_in  / 8.0;           // Q4.3 -> 2^3
         real_expected = real_feature * real_weight;
-        real_got      = out_q4_11 / 2048.0;          // Q4.11 -> 2^11
+        real_got      = out_q4_11 / 64.0;          // Q8.6 -> 2^6
 
         // Tolerance check (allow 1 LSB of the output precision)
-        if (abs_diff(real_got, real_expected) > (1.0/2048.0)) begin
+        if (abs_diff(real_got, real_expected) > (1.0/64.0)) begin
             $display("[FAIL] %s | F:%f W:%f | Expected:%f Got:%f", 
                       name, real_feature, real_weight, real_expected, real_got);
             error_count++;

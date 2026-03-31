@@ -1,37 +1,29 @@
 import LeNet5_pkg::*;
 module multipler (
-    input weight_t  weight_sq0_7,  // Q0.7 signed
-    input feature_t feature_uq4_4, // Q4.4 unsiged
-    output sum_t    out_sq4_11     // Q4.11 signed
+    //TODO: fix in all multiplier instances
+    input weight_t  weight_sq0_7,  // Q4.3 signed
+    input feature_t feature_uq4_4, // Q4.3 signed
+    output sum_t    out_sq4_11     // Q8.6 signed
 );
-    // 1. Prepare the operands
-    // We must cast the feature to signed. To keep it positive, 
-    // we add a leading 0 (sign extension). This makes it 9 bits.
-    logic signed [8:0] s_feature;
-    assign s_feature = $signed({1'b0, feature_uq4_4});
-
-    // 2. Sparsity Detection
+    //TODO: fix in all multiplier instances
+    feature_t feature_sq4_3;
+    weight_t  weight_sq4_3;
+    assign feature_sq4_3 = feature_uq4_4;
+    assign weight_sq4_3 = weight_sq0_7;
+    // 1. Sparsity Detection
     // If either input is zero, the result is zero.
     // This prevents the multiplier toggle activity.
     logic is_sparse;
-    assign is_sparse = (feature_uq4_4 == 8'h00) || (weight_sq0_7 == 8'h00);
+    assign is_sparse = (feature_sq4_3 == 8'h00) || (weight_sq4_3 == 8'h00);
 
-    // 3. Multiplication Logic
-    // Total bits: 9 (feature) + 8 (weight) = 17 bits intermediate
-    logic signed [16:0] full_product;
-    
+    // 2. Multiplication Logic
+    // Total bits: 8 (feature) + 8 (weight) = 16 bits intermediate
     always_comb begin
         if (is_sparse) begin
-            full_product = 17'h0;
+            out_sq4_11 = 17'h0;
         end else begin
-            full_product = s_feature * weight_sq0_7;
+            out_sq4_11 = feature_sq4_3 * weight_sq4_3;
         end
     end
 
-    // 4. Output Mapping
-    // s_feature has 4 fractional bits, weight has 7. 
-    // 4 + 7 = 11 fractional bits. The alignment is perfect.
-    // We take the lower 16 bits to fit Q4.11 (dropping the extra sign bit).
-    assign out_sq4_11 = full_product[15:0];
-    
 endmodule
