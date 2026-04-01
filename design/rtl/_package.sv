@@ -6,6 +6,18 @@ package LeNet5_pkg;
     typedef logic signed [7:0]  weight_t;  // Q0.7  signed
     typedef logic        [7:0]  feature_t; // Q4.4  unsiged
     // Feature Maps
+    parameter FLAT_FM2_TEST_0_PATH = "../../../software/Parameters/Test/0/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_1_PATH = "../../../software/Parameters/Test/1/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_2_PATH = "../../../software/Parameters/Test/2/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_3_PATH = "../../../software/Parameters/Test/3/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_4_PATH = "../../../software/Parameters/Test/4/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_5_PATH = "../../../software/Parameters/Test/5/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_6_PATH = "../../../software/Parameters/Test/6/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_7_PATH = "../../../software/Parameters/Test/7/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_8_PATH = "../../../software/Parameters/Test/8/FM_2/_flatten_FM2.mem";
+    parameter FLAT_FM2_TEST_9_PATH = "../../../software/Parameters/Test/9/FM_2/_flatten_FM2.mem";
+    
+    
     parameter FLATTEN_LAYER_PARAMETERS = "../../../software/Parameters/Test/8/FM_2/_flatten_FM2.mem";
     parameter FEATURE_MAP_3_FILE_PATH  = "../../../software/Parameters/Test/8/FM_3/Feature_Map_3.mem";
     parameter FEATURE_MAP_4_FILE_PATH  = "../../../software/Parameters/Test/8/FM_4/Feature_Map_4.mem";

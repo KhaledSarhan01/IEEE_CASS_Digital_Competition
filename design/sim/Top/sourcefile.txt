@@ -6,6 +6,9 @@
 ../../rtl/DNN_Control.sv 
 ../../rtl/DNN_MAC.sv 
 ../../rtl/DNN.sv 
-../../rtl/OutLayer.sv 
-../../rtl/_top.sv 
+../../rtl/LeNet_FM2.sv 
+../../rtl/LeNet_FM3.sv 
+../../rtl/LeNet_FM4.sv
+../../rtl/LeNet_OutLayer.sv
+../../rtl/LeNet_top.sv
 ../../testbench/Top/tb_LeNet.sv

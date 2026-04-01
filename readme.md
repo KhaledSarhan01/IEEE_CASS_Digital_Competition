@@ -37,8 +37,8 @@
     - [x] Feature Extraction per random image.
 - [ ] Write a Documentation for the System
 - [ ] Design and Test CNN.
-    - [ ] Design and Test PE. 
-    - [ ] Design and Test PE Matrix.
+    - [x] Design and Test PE. 
+    - [x] Design and Test PE Matrix.
     - [ ] Design and Test Maxpool.
     - [ ] Design and Test CNN Control.
 - [x] Design and Test DNN.
@@ -48,21 +48,19 @@
     - [x] Design and Test RAM for Variables.
     - [x] Design and Test ROM for Weights.
     - [x] Memory Mapping for each RAM.
-    - [ ] Memory Mapping for each ROM.
-- [ ] Design and Test Communication Protocol.
-    - [ ] Design and Test UART Rx.
-    - [ ] Design and Test Uart2Memory Control.
-- [ ] Design and Test Output Layer.
+    - [ ] Memory Mapping for each ROM..
+- [x] Design and Test Output Layer.
 - [x] Design and Test Utils Blocks.
     - [x] Design and Test Multipler Block.
     - [x] Design and Test Relu Block.
-- [ ] Design and Test LeNet5_top.
-    - [ ] Design and Test Communication Protocol.
+- [ ] Design and Test LeNet5_top-CNN Side.
     - [ ] Design and Test Input_Feature.
     - [ ] Design and Test conv1_layer.
     - [ ] Design and Test Feature_Map_1.
     - [ ] Design and Test conv2_layer.
     - [ ] Design and Test Feature_Map_2.
+- [x] Design and Test LeNet5_top-DNN Side.
+    - [x] Design and Test Feature_Map_2.
     - [x] Design and Test dense1_layer.
     - [x] Design and Test Feature_Vector_1.
     - [x] Design and Test dense2_layer.
