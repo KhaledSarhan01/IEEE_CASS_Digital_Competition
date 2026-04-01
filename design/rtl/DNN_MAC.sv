@@ -27,11 +27,17 @@ module MAC (
             weight_reg <= weight;
         end
     end
-// bais(Q0.7 Signed)  = sFFFFFFF           
-// bais(Q4.11 Signed) = sIIIIFFFFFFFFFFF = ssss_sFFF_FFFF_0000 
-    sum_t bais_qs4_11;
-    assign bais_qs4_11 = {{5{bais[7]}},bais,4'b0};
+// Bias (Q4.3 Signed) = [7]Sign [6:3]Integer [2:0]Fractional
+// Bias (Q8.6 Signed) = [15:14]Sign [13:6]Integer [5:0]Fractional
 
+    sum_t bais_qs8_6;
+
+    assign bais_qs8_6 = {
+        {6{bais[7]}},  // Sign extend (2 original sign bits + 4 padding for Q8 range)
+        bais[6:3],     // Original 4 Integer bits (I3, I2, I1, I0)
+        bais[2:0],     // Original 3 Fractional bits (F1, F2, F3)
+        3'b000         // Pad 3 new fractional bits with zero to maintain value
+    };
 // 2. Multiplication Operation and Registering
     sum_t product,product_comb;
     always_ff @( posedge clk or posedge rst) begin 
@@ -56,7 +62,7 @@ module MAC (
             MAC_out <= 'b0;
         end else begin
             if (bais_en) begin
-                MAC_out <= bais_qs4_11;
+                MAC_out <= bais_qs8_6;
             end else if(weight_en) begin
                 MAC_out <= MAC_out + product;
             end
