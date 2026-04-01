@@ -28,7 +28,7 @@ module Output_Layer(
             feature_reg[in_address] <= in_feature;
         end
     end
-    logic [3:0] strat_reg;
+    logic [4:0] strat_reg;
     always_ff @( posedge clk or posedge rst ) begin 
         if (rst) begin
             strat_reg <= 'b0;
@@ -37,6 +37,7 @@ module Output_Layer(
             strat_reg[1] <= strat_reg[0];
             strat_reg[2] <= strat_reg[1];
             strat_reg[3] <= strat_reg[2];
+            strat_reg[4] <= strat_reg[3];
         end
     end
 // 2. Compartor Tree
@@ -57,7 +58,7 @@ module Output_Layer(
             if (rst) begin
                 winner_1_q1_id    <= 'b0;
                 winner_1_q1_value <= 'b0;
-            end else if(strat_reg[0]) begin
+            end else if(strat_reg[1]) begin
                 winner_1_q1_id    <= winner_1_q1_id_comb;
                 winner_1_q1_value <= winner_1_q1_value_comb;
             end
@@ -78,7 +79,7 @@ module Output_Layer(
             if (rst) begin
                 winner_2_q1_id    <= 'b0;
                 winner_2_q1_value <= 'b0;
-            end else if(strat_reg[0]) begin
+            end else if(strat_reg[1]) begin
                 winner_2_q1_id    <= winner_2_q1_id_comb;
                 winner_2_q1_value <= winner_2_q1_value_comb;
             end
@@ -99,7 +100,7 @@ module Output_Layer(
             if (rst) begin
                 winner_3_q1_id    <= 'b0;
                 winner_3_q1_value <= 'b0;
-            end else if(strat_reg[0]) begin
+            end else if(strat_reg[1]) begin
                 winner_3_q1_id    <= winner_3_q1_id_comb;
                 winner_3_q1_value <= winner_3_q1_value_comb;
             end
@@ -120,7 +121,7 @@ module Output_Layer(
             if (rst) begin
                 winner_4_q1_id    <= 'b0;
                 winner_4_q1_value <= 'b0;
-            end else if(strat_reg[0]) begin
+            end else if(strat_reg[1]) begin
                 winner_4_q1_id    <= winner_4_q1_id_comb;
                 winner_4_q1_value <= winner_4_q1_value_comb;
             end
@@ -141,7 +142,7 @@ module Output_Layer(
             if (rst) begin
                 winner_5_q1_id    <= 'b0;
                 winner_5_q1_value <= 'b0;
-            end else if(strat_reg[0]) begin
+            end else if(strat_reg[1]) begin
                 winner_5_q1_id    <= winner_5_q1_id_comb;
                 winner_5_q1_value <= winner_5_q1_value_comb;
             end
@@ -163,7 +164,7 @@ module Output_Layer(
             if (rst) begin
                 winner_1_q2_id    <= 'b0;
                 winner_1_q2_value <= 'b0;
-            end else if(strat_reg[1]) begin
+            end else if(strat_reg[2]) begin
                 winner_1_q2_id    <= winner_1_q2_id_comb;
                 winner_1_q2_value <= winner_1_q2_value_comb;
             end
@@ -184,7 +185,7 @@ module Output_Layer(
             if (rst) begin
                 winner_2_q2_id    <= 'b0;
                 winner_2_q2_value <= 'b0;
-            end else if(strat_reg[1]) begin
+            end else if(strat_reg[2]) begin
                 winner_2_q2_id    <= winner_2_q2_id_comb;
                 winner_2_q2_value <= winner_2_q2_value_comb;
             end
@@ -196,9 +197,9 @@ module Output_Layer(
             if (rst) begin
                 winner_3_q2_id    <= 'b0;
                 winner_3_q2_value <= 'b0;
-            end else if(strat_reg[1]) begin
-                winner_3_q2_id    <= winner_5_q1_value;
-                winner_3_q2_value <= winner_5_q1_id;
+            end else if(strat_reg[2]) begin
+                winner_3_q2_id    <= winner_5_q1_id;
+                winner_3_q2_value <= winner_5_q1_value;
             end
         end
     // Third Layer
@@ -218,7 +219,7 @@ module Output_Layer(
             if (rst) begin
                 winner_1_q3_id    <= 'b0;
                 winner_1_q3_value <= 'b0;
-            end else if(strat_reg[2]) begin
+            end else if(strat_reg[3]) begin
                 winner_1_q3_id    <= winner_1_q3_id_comb;
                 winner_1_q3_value <= winner_1_q3_value_comb;
             end
@@ -230,7 +231,7 @@ module Output_Layer(
             if (rst) begin
                 winner_2_q3_id    <= 'b0;
                 winner_2_q3_value <= 'b0;
-            end else if(strat_reg[2]) begin
+            end else if(strat_reg[3]) begin
                 winner_2_q3_id    <= winner_3_q2_id;
                 winner_2_q3_value <= winner_3_q2_value;
             end
@@ -249,7 +250,7 @@ module Output_Layer(
     always_ff @( posedge clk or posedge rst ) begin 
         if (rst) begin
             prediction <= 'b0;
-        end else if(strat_reg[3]) begin
+        end else if(strat_reg[4]) begin
             prediction <= prediction_comb;
         end
     end
@@ -258,7 +259,7 @@ module Output_Layer(
         if (rst) begin
             predict_valid <= 'b0;
         end else begin
-            predict_valid <= strat_reg[3];
+            predict_valid <= strat_reg[4];
         end
     end
 endmodule

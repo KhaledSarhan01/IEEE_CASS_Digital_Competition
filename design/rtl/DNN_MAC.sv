@@ -61,9 +61,9 @@ module MAC (
 
     // Clamp to Max/Min 16-bit values if overflow occurs
     wire signed [15:0] saturated_sum;
-    assign saturated_sum = pos_overflow ? 16'h7FFF :  // Max positive (0111...1)
-                        neg_overflow ? 16'h8000 :  // Max negative (1000...0)
-                        extended_sum[15:0];        // Normal sum
+    assign saturated_sum = pos_overflow ? 16'h7F80 : //Max safe Q4.4 value (15.9375)
+                           neg_overflow ? 16'h8000 : // Max negative (1000...0)
+                           extended_sum[15:0];       // Normal sum
 
 // 3. Accumulation and output 
     always_ff @(posedge clk or posedge rst) begin 
