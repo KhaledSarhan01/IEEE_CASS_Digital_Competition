@@ -108,7 +108,7 @@ module DNN_Control #(
         end 
         assign bias_address = bias_count; 
 // DNN Control
-    typedef enum logic[3:0] {RESET,IDLE,START,F_START,F_ACCUMLATE,F_DONE_Q1,F_DONE_Q2,F_LOAD,DONE} fsm_t;
+    typedef enum logic[3:0] {RESET,IDLE,START,F_START,F_ACCUMLATE,F_DONE_Q1,F_DONE_Q2,F_DONE_Q3,F_LOAD,DONE} fsm_t;
     fsm_t current_state,next_state;
     // Sequential current_state Logic
     always_ff @( posedge clk or posedge rst ) begin 
@@ -139,7 +139,8 @@ module DNN_Control #(
                 end
             end
             F_DONE_Q1: next_state = F_DONE_Q2;
-            F_DONE_Q2: next_state = F_LOAD;
+            F_DONE_Q2: next_state = F_DONE_Q3;
+            F_DONE_Q3: next_state = F_LOAD;
             F_LOAD: begin
                 if(all_features_done)begin
                     next_state = DONE;
@@ -229,6 +230,12 @@ module DNN_Control #(
                 out_feature_increament = 'b1;
             end
             F_DONE_Q2:begin// Disable Weight / Enable out_enable and Increament Bias/ out_feature_count  
+                // Enable Weight
+                weight_en              = 'b1;
+                // Restart input and weight count
+                in_feature_restart = 1'b1;
+            end
+            F_DONE_Q3:begin// Disable Weight / Enable out_enable and Increament Bias/ out_feature_count  
                 // Enable Weight
                 weight_en              = 'b1;
                 // Restart input and weight count

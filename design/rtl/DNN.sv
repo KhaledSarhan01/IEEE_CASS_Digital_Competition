@@ -47,14 +47,22 @@ module DNN #(
     );  
 // MAC
     weight_t  bias;
-    weight_t  weight;
+    weight_t  weight,weight_reg;
     sum_t     MAC_out;
+    // Solve Alignment Problem in Top System
+    always_ff @( posedge clk or posedge rst ) begin 
+        if(rst)begin
+            weight_reg <= 'b0;
+        end else begin
+            weight_reg <= weight;
+        end
+    end
     MAC u_DNN_MAC (
         .clk(clk),
         .rst(rst),
         // Weight and input feature per clock cycle
         .feature_in(in_feature),
-        .weight(weight),
+        .weight(weight_reg),
         .weight_en(weight_en), // Start multiplication if one
         // Bais in the addition Starting 
         .bais(bias),

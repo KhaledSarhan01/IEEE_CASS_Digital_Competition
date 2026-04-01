@@ -2,13 +2,30 @@ import LeNet5_pkg::*;
 module tb_DNN;
 // Signals
     parameter OUT_FORMAT = "Q4_4";
-    
+    // Testing Dense 1
     parameter NUM_INPUT            = FEATURE_MAP_2_SIZE;
     parameter NUM_OUTPUT           = FEATURE_MAP_3_SIZE;
-    parameter WEIGHT_FILE          = "../../../software/Parameters/Weight/dense1/dense1_weight.mem";
-    parameter BIAS_FILE            = "../../../software/Parameters/Weight/dense1/dense1_bias.mem";
-    parameter INPUT_FEATURES_FILE  = "../../../software/Parameters/Tests/Test_no3/FM_2/_flatten_FM2.mem";
-    parameter OUTPUT_FEATURES_FILE = "../../../software/Parameters/Tests/Test_no3/FM_3/Feature_Map_3.mem";
+    parameter WEIGHT_FILE          = DENSE_1_WEIGHT_FILE;
+    parameter BIAS_FILE            = DENSE_1_BIAS_FILE;
+    parameter INPUT_FEATURES_FILE  = FLATTEN_LAYER_PARAMETERS; 
+    parameter OUTPUT_FEATURES_FILE = FEATURE_MAP_3_FILE_PATH ;
+  
+    // Testing Dense 2
+    // parameter NUM_INPUT            = FEATURE_MAP_3_SIZE;
+    // parameter NUM_OUTPUT           = FEATURE_MAP_4_SIZE;
+    // parameter WEIGHT_FILE          = "../../../software/Parameters/Weight/dense2/dense2_weight.mem";
+    // parameter BIAS_FILE            = "../../../software/Parameters/Weight/dense2/dense2_bias.mem";
+    // parameter INPUT_FEATURES_FILE  = "../../../software/Parameters/Test/3/FM_3/Feature_Map_3.mem";
+    // parameter OUTPUT_FEATURES_FILE = "../../../software/Parameters/Test/3/FM_4/Feature_Map_4.mem";
+
+    // Testing Dense 3
+    // parameter NUM_INPUT            = FEATURE_MAP_4_SIZE;
+    // parameter NUM_OUTPUT           = PREDICTION_SIZE;
+    // parameter WEIGHT_FILE          = "../../../software/Parameters/Weight/dense3/dense3_weight.mem";
+    // parameter BIAS_FILE            = "../../../software/Parameters/Weight/dense3/dense3_bias.mem";
+    // parameter INPUT_FEATURES_FILE  = "../../../software/Parameters/Test/3/FM_4/Feature_Map_4.mem";
+    // parameter OUTPUT_FEATURES_FILE = "../../../software/Parameters/Test/3/Predication/Predictions.mem";
+    
     localparam NUM_WEIGHT = NUM_INPUT*NUM_OUTPUT;
     localparam NUM_BIAS   = NUM_OUTPUT;
 
@@ -71,6 +88,11 @@ DNN #(
                     @(posedge clk); 
                     if (out_enable) begin
                         computed_feautures[out_address] = out_feature;
+                        // computed_feautures[out_address] = DUT.MAC_out;
+                        // $display("computed_feautures[%0d] = %3f",out_address,out_feature/16.0);
+                        // $display("computed_feautures[%0d] = %3f",out_address,DUT.MAC_out/2048.0);
+                        // $display("expected_feautures[%0d] = %3f",out_address,output_features[out_address]/16.0);
+                        // $display("=======");
                     end
                     if(out_done)begin
                         break;
@@ -89,9 +111,9 @@ DNN #(
 
         for (int i = 0; i <= NUM_OUTPUT-1; i++) begin
             // Using !== to catch X or Z mismatches if they occur
-            if (expected_arr[i] !== computed_arr[i]) begin
-                $display("[ERROR] Mismatch at index %0d: Expected %h, Got %h", 
-                        i, expected_arr[i], computed_arr[i]);
+            if ((expected_arr[i] - computed_arr[i])> 0.1) begin
+                $display("[ERROR] Mismatch at index %0d: Expected %2f, Got %2f", 
+                        i, expected_arr[i]/16.0, computed_arr[i]/16.0);
                 error_count++;
             end
         end

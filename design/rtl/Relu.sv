@@ -54,5 +54,5 @@ module relu #(
             enable_reg[1] <= enable_reg[0];
         end
     end
-    assign relu_out_en = enable_reg[0];
+    assign relu_out_en = enable_reg[1];
 endmodule
