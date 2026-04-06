@@ -1,15 +1,14 @@
 import LeNet5_pkg::*;
-localparam ADDR_WIDTH = $clog2(FEATURE_MAP_2_SIZE);
 module Feature_Map_2 (
     // Input Side
     input logic                       in_clk,
-    input logic [ADDR_WIDTH-1:0]      write_addr,
+    input logic [$clog2(FEATURE_MAP_2_SIZE)-1:0]      write_addr,
     input logic [DNN_BUS_WIDTH-1:0]   data_in,
     input logic                       write_enable,
     input logic                       in_done,
     // Output Side
     input  logic                      out_clk, 
-    input  logic [ADDR_WIDTH-1:0]     read_addr, 
+    input  logic [$clog2(FEATURE_MAP_2_SIZE)-1:0]     read_addr, 
     output logic [DNN_BUS_WIDTH-1:0]  data_out,
     output logic                      out_done
 );

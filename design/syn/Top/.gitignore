@@ -1,0 +1,47 @@
+# --- Quartus / Platform Designer (QSys) Junk ---
+db/
+incremental_db/
+simulation/
+greybox_tmp/
+hc_output/
+/hps_isw_handoff/
+/ip/
+.qsys_edit/
+
+# --- Compilation Output Files ---
+*.done
+*.rpt
+*.summary
+*.msg
+*.jdi
+*.pin
+*.sld
+*.bak
+*.txt
+*.htm
+*.html
+*.smsg
+*.cdf
+*.qws
+
+# --- Programming Files (Optional) ---
+# Keep these if you want the "ready-to-run" binary, 
+# but usually excluded from templates to save space.
+# *.sof
+# *.pof
+
+# --- Software (HPS) Junk ---
+# Assuming hps_code contains your C code and Makefile
+hps_code/*.o
+hps_code/*.d
+hps_code/executable_name_here
+
+# --- Files to DEFINITELY KEEP (Do not ignore) ---
+!*.qpf
+!*.qsf
+!*.sdc
+!*.v
+!*.sv
+!*.qsys
+!*.sopcinfo
+!hps_code/

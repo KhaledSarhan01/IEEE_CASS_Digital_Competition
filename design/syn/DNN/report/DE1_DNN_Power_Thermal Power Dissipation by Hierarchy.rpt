@@ -1,0 +1,64 @@
+Thermal Power Dissipation by Hierarchy report for DE1_DNN
+Fri Feb 27 20:03:33 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Thermal Power Dissipation by Hierarchy
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Thermal Power Dissipation by Hierarchy                                                                                                                                                                                                                                                             ;
++-------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-------------------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node                      ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                                                             ;
++-------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-------------------------------------------------------------------------------------------------+
+; |DE1_DNN                                        ; 46.84 mW (24.41 mW)                  ; 43.20 mW (22.37 mW)             ; 2.03 mW (2.03 mW)                 ; 1.61 mW (0.02 mW)                 ; |DE1_DNN                                                                                        ;
+;     |hard_block:auto_generated_inst             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |DE1_DNN|hard_block:auto_generated_inst                                                         ;
+;     |seven_segment_display:u0                   ; 0.03 mW (0.03 mW)                    ; 0.02 mW (0.02 mW)               ; --                                ; 0.01 mW (0.01 mW)                 ; |DE1_DNN|seven_segment_display:u0                                                               ;
+;     |seven_segment_display:u1                   ; 0.03 mW (0.03 mW)                    ; 0.02 mW (0.02 mW)               ; --                                ; 0.01 mW (0.01 mW)                 ; |DE1_DNN|seven_segment_display:u1                                                               ;
+;     |seven_segment_display:u2                   ; 0.03 mW (0.03 mW)                    ; 0.02 mW (0.02 mW)               ; --                                ; 0.01 mW (0.01 mW)                 ; |DE1_DNN|seven_segment_display:u2                                                               ;
+;     |seven_segment_display:u3                   ; 0.03 mW (0.03 mW)                    ; 0.02 mW (0.02 mW)               ; --                                ; 0.01 mW (0.01 mW)                 ; |DE1_DNN|seven_segment_display:u3                                                               ;
+;     |seven_segment_display:u4                   ; 0.03 mW (0.03 mW)                    ; 0.02 mW (0.02 mW)               ; --                                ; 0.01 mW (0.01 mW)                 ; |DE1_DNN|seven_segment_display:u4                                                               ;
+;     |DNN:u_DNN                                  ; 2.99 mW (0.00 mW)                    ; 2.36 mW (0.00 mW)               ; --                                ; 0.64 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN                                                                              ;
+;         |ROM:u_DNN_Bias_ROM                     ; 0.64 mW (0.00 mW)                    ; 0.62 mW (0.00 mW)               ; --                                ; 0.02 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN|ROM:u_DNN_Bias_ROM                                                           ;
+;             |altsyncram:rom_mem_rtl_0           ; 0.64 mW (0.00 mW)                    ; 0.62 mW (0.00 mW)               ; --                                ; 0.02 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN|ROM:u_DNN_Bias_ROM|altsyncram:rom_mem_rtl_0                                  ;
+;                 |altsyncram_hge1:auto_generated ; 0.64 mW (0.64 mW)                    ; 0.62 mW (0.62 mW)               ; --                                ; 0.02 mW (0.02 mW)                 ; |DE1_DNN|DNN:u_DNN|ROM:u_DNN_Bias_ROM|altsyncram:rom_mem_rtl_0|altsyncram_hge1:auto_generated   ;
+;         |DNN_Control:u_DNN_Control              ; 0.43 mW (0.43 mW)                    ; 0.26 mW (0.26 mW)               ; --                                ; 0.17 mW (0.17 mW)                 ; |DE1_DNN|DNN:u_DNN|DNN_Control:u_DNN_Control                                                    ;
+;         |MAC:u_DNN_MAC                          ; 1.64 mW (1.63 mW)                    ; 1.28 mW (1.28 mW)               ; --                                ; 0.36 mW (0.36 mW)                 ; |DE1_DNN|DNN:u_DNN|MAC:u_DNN_MAC                                                                ;
+;             |multipler:u_DNN_MAC_multipler      ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN|MAC:u_DNN_MAC|multipler:u_DNN_MAC_multipler                                  ;
+;         |relu:u_DNN_Relu                        ; 0.28 mW (0.28 mW)                    ; 0.19 mW (0.19 mW)               ; --                                ; 0.09 mW (0.09 mW)                 ; |DE1_DNN|DNN:u_DNN|relu:u_DNN_Relu                                                              ;
+;         |ROM:u_DNN_Weight_ROM                   ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN|ROM:u_DNN_Weight_ROM                                                         ;
+;             |altsyncram:rom_mem_rtl_0           ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN|ROM:u_DNN_Weight_ROM|altsyncram:rom_mem_rtl_0                                ;
+;                 |altsyncram_rje1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |DE1_DNN|DNN:u_DNN|ROM:u_DNN_Weight_ROM|altsyncram:rom_mem_rtl_0|altsyncram_rje1:auto_generated ;
+;     |PLL:u_PLL                                  ; 19.29 mW (0.00 mW)                   ; 18.39 mW (0.00 mW)              ; --                                ; 0.89 mW (0.00 mW)                 ; |DE1_DNN|PLL:u_PLL                                                                              ;
+;         |PLL_0002:pll_inst                      ; 19.29 mW (0.00 mW)                   ; 18.39 mW (0.00 mW)              ; --                                ; 0.89 mW (0.00 mW)                 ; |DE1_DNN|PLL:u_PLL|PLL_0002:pll_inst                                                            ;
+;             |altera_pll:altera_pll_i            ; 19.29 mW (19.29 mW)                  ; 18.39 mW (18.39 mW)             ; --                                ; 0.89 mW (0.89 mW)                 ; |DE1_DNN|PLL:u_PLL|PLL_0002:pll_inst|altera_pll:altera_pll_i                                    ;
++-------------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-------------------------------------------------------------------------------------------------+
+(1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
+
+(2) The "Block Thermal Static Power" for all levels of hierarchy except the top-level hierarchy is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
+
+
