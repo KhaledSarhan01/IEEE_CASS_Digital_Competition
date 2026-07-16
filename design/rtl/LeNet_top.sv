@@ -155,6 +155,7 @@ module LeNet5(
         .in_enable (dense3_write_enable),
         .in_start  (dense3_done), 
         // Output Prediction 
+        .LeNet_start(LeNet_start),
         .prediction(out_argmax_prediction),
         .predict_valid(out_valid)
     );                                 

@@ -8,6 +8,7 @@ module Output_Layer(
     input logic       in_enable,
     input logic       in_start, 
     // Output Prediction 
+    input  logic       LeNet_start,
     output logic [9:0] prediction,
     output logic       predict_valid
 );
@@ -255,11 +256,25 @@ module Output_Layer(
         end
     end
     // predict_valid
+    logic predict_valid_unlatched;
     always_ff @( posedge clk or posedge rst ) begin 
         if (rst) begin
-            predict_valid <= 'b0;
+            predict_valid_unlatched <= 'b0;
         end else begin
-            predict_valid <= strat_reg[4];
+            predict_valid_unlatched <= strat_reg[4];
+        end
+    end
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            predict_valid <= 1'b0;
+        end 
+        // Clear the flag when the software signals the start of a NEW feature map
+        else if (LeNet_start) begin
+            predict_valid <= 1'b0; 
+        end 
+        // Latch the flag high when the internal CNN pipeline finishes
+        else if (predict_valid_unlatched) begin
+            predict_valid <= 1'b1;
         end
     end
 endmodule

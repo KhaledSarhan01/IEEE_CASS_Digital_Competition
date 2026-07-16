@@ -1,5 +1,5 @@
 # Project Name
-TARGET = hps_mmap_test
+TARGET = LeNet5_hps_code
 
 # Source files
 SRCS = main.c
