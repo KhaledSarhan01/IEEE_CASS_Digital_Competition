@@ -124,6 +124,13 @@ int main(int argc, char *argv[]) {
             if (hw_prediction == ground_truth) hw_correct++;
             if (software_prediction == ground_truth) sw_correct++;
             if (hw_prediction == software_prediction) hw_sw_match++;
+            
+            // Print per-file comparison
+            if (hw_prediction != ground_truth) {
+                printf("[%03u] Target: %d | HW Predict: %d | SW Predict: %d ", 
+                   total_tests, ground_truth, hw_prediction, software_prediction);
+                printf("[ HW FAIL ] (Raw HW: 0x%03X)\n", raw_out);
+            }
 
             // // Print per-file comparison
             // printf("[%03u] Target: %d | HW Predict: %d | SW Predict: %d ", 

@@ -33,27 +33,29 @@ module tb_LeNet;
 ////////////////////////////////////
 
 // Data importing
-    logic [7:0] FM2_test_0  [FEATURE_MAP_2_SIZE-1:0];
+    logic [7:0] Test_Map    [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_0  [FEATURE_MAP_2_SIZE-1:0];
     logic [7:0] FM2_test_1  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_2  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_3  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_4  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_5  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_6  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_7  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_8  [FEATURE_MAP_2_SIZE-1:0];
-    logic [7:0] FM2_test_9  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_2  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_3  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_4  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_5  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_6  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_7  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_8  [FEATURE_MAP_2_SIZE-1:0];
+    // logic [7:0] FM2_test_9  [FEATURE_MAP_2_SIZE-1:0];
     initial begin
-        $readmemh(FLAT_FM2_TEST_0_PATH,FM2_test_0);
+        $readmemh(TEST_MAP_PATH,Test_Map);
+        // $readmemh(FLAT_FM2_TEST_0_PATH,FM2_test_0);
         $readmemh(FLAT_FM2_TEST_1_PATH,FM2_test_1);
-        $readmemh(FLAT_FM2_TEST_2_PATH,FM2_test_2);
-        $readmemh(FLAT_FM2_TEST_3_PATH,FM2_test_3);
-        $readmemh(FLAT_FM2_TEST_4_PATH,FM2_test_4);
-        $readmemh(FLAT_FM2_TEST_5_PATH,FM2_test_5);
-        $readmemh(FLAT_FM2_TEST_6_PATH,FM2_test_6);
-        $readmemh(FLAT_FM2_TEST_7_PATH,FM2_test_7);
-        $readmemh(FLAT_FM2_TEST_8_PATH,FM2_test_8);
-        $readmemh(FLAT_FM2_TEST_9_PATH,FM2_test_9);
+        // $readmemh(FLAT_FM2_TEST_2_PATH,FM2_test_2);
+        // $readmemh(FLAT_FM2_TEST_3_PATH,FM2_test_3);
+        // $readmemh(FLAT_FM2_TEST_4_PATH,FM2_test_4);
+        // $readmemh(FLAT_FM2_TEST_5_PATH,FM2_test_5);
+        // $readmemh(FLAT_FM2_TEST_6_PATH,FM2_test_6);
+        // $readmemh(FLAT_FM2_TEST_7_PATH,FM2_test_7);
+        // $readmemh(FLAT_FM2_TEST_8_PATH,FM2_test_8);
+        // $readmemh(FLAT_FM2_TEST_9_PATH,FM2_test_9);
     end
 
 // Core
@@ -61,46 +63,50 @@ module tb_LeNet;
         Initialization();
         Reset();
         // Testing Scenario
-           // Test 0
-            Main_Scenario(FM2_test_0);
+           // Test Mape
+            Main_Scenario(Test_Map);
             wait(out_valid);
             @(negedge clk);
-            // Test 1
-            Main_Scenario(FM2_test_1);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 2
-            Main_Scenario(FM2_test_2);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 3
-            Main_Scenario(FM2_test_3);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 4
-            Main_Scenario(FM2_test_4);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 5
-            Main_Scenario(FM2_test_5);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 6
-            Main_Scenario(FM2_test_6);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 7
-            Main_Scenario(FM2_test_7);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 8
-            Main_Scenario(FM2_test_8);
-            wait(out_valid);
-            @(negedge clk);
-            // Test 9
-            Main_Scenario(FM2_test_9);
-            wait(out_valid);
-            @(negedge clk);
+        //     // Test 0
+        //     Main_Scenario(FM2_test_0);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 1
+        //     Main_Scenario(FM2_test_1);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 2
+        //     Main_Scenario(FM2_test_2);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 3
+        //     Main_Scenario(FM2_test_3);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 4
+        //     Main_Scenario(FM2_test_4);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 5
+        //     Main_Scenario(FM2_test_5);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 6
+        //     Main_Scenario(FM2_test_6);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 7
+        //     Main_Scenario(FM2_test_7);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 8
+        //     Main_Scenario(FM2_test_8);
+        //     wait(out_valid);
+        //     @(negedge clk);
+        //     // Test 9
+        //     Main_Scenario(FM2_test_9);
+        //     wait(out_valid);
+        //     @(negedge clk);
         Finish();
     end
     

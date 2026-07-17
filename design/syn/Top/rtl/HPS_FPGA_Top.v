@@ -91,6 +91,8 @@ module HPS_FPGA_Top(
 	// Clock
 		wire clk;
 	// Input Interface 
+	    wire LeNet_write_enable_sync;
+	    wire LeNet_start_sync;
 		wire [7:0] LeNet_write_addr; 
 		wire [7:0] LeNet_data_in;
 		wire       LeNet_write_enable;
@@ -104,12 +106,13 @@ module HPS_FPGA_Top(
 //=======================================================
 //  Structural coding
 //=======================================================
-	pll u3(
-		.refclk(CLOCK_50),   //  refclk.clk
-		.rst(1'b0),      //   reset.reset
-		.outclk_0(clk)  // outclk0.clk
-	);
+	// pll u3(
+	// 	.refclk(CLOCK_50),   //  refclk.clk
+	// 	.rst(1'b0),      //   reset.reset
+	// 	.outclk_0(clk)  // outclk0.clk
+	// );
 
+	assign clk = CLOCK_50;
     computer_system u0 (
         .clk_clk             (clk),             //          clk.clk
         .reset_reset_n       (1'b1),      			  //        reset.reset_n
@@ -145,13 +148,29 @@ module HPS_FPGA_Top(
 		// Input Interface 
 		.LeNet_write_addr(LeNet_write_addr), 
 		.LeNet_data_in(LeNet_data_in),
-		.LeNet_write_enable(LeNet_write_enable),
-		.LeNet_start(LeNet_start),
+		.LeNet_write_enable(LeNet_write_enable_sync), // Clean signal
+        .LeNet_start(LeNet_start_sync),               // Clean signal
 		// Output Predication 
 		.out_argmax_prediction(out_argmax_prediction),
 		.out_valid(out_valid)
 	);
 
-	// assign LEDR = out_argmax_prediction;
+	assign LEDR = out_argmax_prediction;
+
+    // Synchronize Write Enable
+    sync_2ff sync_wen (
+        .clk(clk),
+        .rst(1'b0), // Or your actual reset wire
+        .async_in(LeNet_write_enable),
+        .sync_out(LeNet_write_enable_sync)
+    );
+
+    // Synchronize Start Signal
+    sync_2ff sync_start (
+        .clk(clk),
+        .rst(1'b0),
+        .async_in(LeNet_start),
+        .sync_out(LeNet_start_sync)
+    );
 
 endmodule

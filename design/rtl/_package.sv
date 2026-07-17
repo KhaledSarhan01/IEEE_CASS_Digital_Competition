@@ -5,6 +5,8 @@ package LeNet5_pkg;
     typedef logic signed [15:0] sum_t;     // Q4.11 signed
     typedef logic signed [7:0]  weight_t;  // Q0.7  signed
     typedef logic        [7:0]  feature_t; // Q4.4  unsiged
+    // Custom Test
+    parameter TEST_MAP_PATH = "D:/Digital/IEEE_CASS_Digital_Competition/design/testbench/Top/99.mem";
     // Feature Maps
     parameter FLAT_FM2_TEST_0_PATH = "../../../software/Parameters/Test/0/FM_2/_flatten_FM2.mem";
     parameter FLAT_FM2_TEST_1_PATH = "../../../software/Parameters/Test/1/FM_2/_flatten_FM2.mem";
